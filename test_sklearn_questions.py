@@ -150,7 +150,6 @@ def test_get_estimator_performance(churn_train, churn_test):
 
     est = get_estimator()
     est.fit(X_train, y_train)
-
     y_proba = est.predict_proba(X_test)[:, 1]
     auc = roc_auc_score(y_test, y_proba)
     print(f"\nTest ROC-AUC: {auc:.4f}")
