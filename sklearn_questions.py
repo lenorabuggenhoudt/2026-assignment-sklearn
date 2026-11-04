@@ -218,7 +218,13 @@ def get_estimator():
         ("num", numerical_pipe, numerical_columns)
     ])
 
-    classifier = HistGradientBoostingClassifier(max_iter=150)
+    classifier = HistGradientBoostingClassifier(
+        max_iter=150,
+        learning_rate=0.05,
+        max_leaf_nodes=15,
+        l2_regularization=5.0,
+        random_state=42
+    )
 
     return Pipeline([
         ("preprocessor", preprocessor),
